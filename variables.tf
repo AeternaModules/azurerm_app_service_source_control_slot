@@ -26,10 +26,10 @@ EOT
     slot_id                = string
     branch                 = optional(string)
     repo_url               = optional(string)
-    rollback_enabled       = optional(bool, false)
-    use_local_git          = optional(bool, false)
-    use_manual_integration = optional(bool, false)
-    use_mercurial          = optional(bool, false)
+    rollback_enabled       = optional(bool) # Default: false
+    use_local_git          = optional(bool) # Default: false
+    use_manual_integration = optional(bool) # Default: false
+    use_mercurial          = optional(bool) # Default: false
     github_action_configuration = optional(object({
       code_configuration = optional(object({
         runtime_stack   = string
@@ -41,7 +41,7 @@ EOT
         registry_url      = string
         registry_username = optional(string)
       }))
-      generate_workflow_file = optional(bool, true)
+      generate_workflow_file = optional(bool) # Default: true
     }))
   }))
 }
