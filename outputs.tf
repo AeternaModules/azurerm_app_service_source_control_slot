@@ -8,7 +8,7 @@ output "app_service_source_control_slots_branch" {
 }
 output "app_service_source_control_slots_github_action_configuration" {
   description = "Map of github_action_configuration values across all app_service_source_control_slots, keyed the same as var.app_service_source_control_slots"
-  value       = { for k, v in azurerm_app_service_source_control_slot.app_service_source_control_slots : k => v.github_action_configuration if v.github_action_configuration != null && length(v.github_action_configuration) > 0 }
+  value       = { for k, v in azurerm_app_service_source_control_slot.app_service_source_control_slots : k => one(v.github_action_configuration) if v.github_action_configuration != null && length(v.github_action_configuration) > 0 }
   sensitive   = true
 }
 output "app_service_source_control_slots_repo_url" {
